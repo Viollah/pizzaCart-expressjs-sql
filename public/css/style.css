@@ -1,0 +1,363 @@
+
+
+  /*  */
+  :root{
+	--base: cadetblue;
+	--primary:cadetblue;
+	/* --tertiary: #ff006e; */
+	/* --secondary: #fb5607; */
+	--extra: aqua;
+}
+
+
+body{
+    background-color: aqua;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img{
+    border-radius: .5em;
+}
+button{
+    border-radius: .4em;
+    margin: 1em;
+    
+}
+ button:hover{
+     background-color:cadetblue;
+ }
+ input:hover{
+    background-color: cadetblue;
+}
+
+/* .small > img{
+    height: auto;
+    width: 40%;
+    border-radius: .5em;
+}
+
+.large > img{
+    height: auto;
+    width: 55%;
+}
+
+.medium > img{
+    height: auto;
+    width: 70%;
+} */
+.heading{
+    /* background-color: cadetblue; */
+    margin: 2em;
+    padding: 1em;
+    /* color: var(--tertiary); */
+    font-size: large;
+    font-weight: bold;
+}
+/*  */
+.cart {
+    background-color:cadetblue;
+    flex: 1;
+    padding-top: 0.1em;
+    border-radius: 2em;
+   
+    
+}
+
+.carts {
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-color: cadetblue;
+    color: var(--tertiary);
+    margin: auto;
+    padding: auto;
+    border-radius: 2em;
+    
+}
+
+.item {
+    text-align: center;
+}
+/*  */
+.pizza > form > div{
+    /* background-color: var(--extra); */
+    
+    margin: .5em;
+    padding-top: 1em;
+    border-radius: 10px;
+    
+}
+
+/* .contacts{
+    margin: 1em;
+    padding: 1em;
+    background-color: var(--tertiary);
+    
+} */
+  
+h3{
+  
+    text-align: center;
+}
+.plusBtn, .minusBtn {
+    display: block;
+    margin: auto;
+    border-radius: 2em;
+    padding: 5px 10px;
+    background-color: wheat;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+}
+.btn{
+    display: block;
+    margin: auto;
+    border-radius: 1em;
+    border: none;
+    padding: 10px 15px;
+    background-color: wheat;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+h5{
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+}
+.pizza{
+    background-color: cadetblue;
+    color: var(--tertiary);
+    margin: auto;
+   border-radius: 2em;
+ 
+}
+.cart{
+    background-color: cadetblue;
+    padding: 2em;
+    margin: auto;
+    
+}
+.cart-header{
+    /* background-color: var(--secondary); */
+}
+.cart-block{
+ background-color: cadetblue;
+ margin-top: 1em;
+ display: flex;
+ 
+}
+
+.cart-block >div{
+    padding: 1em;
+    margin-top: 1em;
+    display: flex;
+   }
+   .cart-block >div div{
+    padding: 1em;
+    margin-top: 1em;
+    display: flex;
+
+    
+   }
+
+
+.cart-wrap{
+    background-color: cadetblue;
+    padding: 1rem;
+    text-align: center;
+    display: block;
+}
+
+.cart-wrap > div{
+    display: flex;
+    background-color: cadetblue;
+    padding: none;
+    margin: none;
+    
+}
+
+.cart-wrap > div > div{
+    
+    padding: 1em;
+    margin: auto;
+  
+}
+
+.headingC{
+    background-color: cadetblue;
+  
+}
+
+h4{
+    padding-top: 2.4em;
+}
+/*  */
+.small{
+    background-color:coral;
+    flex: 1;
+}
+
+.large {
+    background-color:crimson;
+    flex: 1;
+}
+
+.medium {
+    background-color:chartreuse;
+    flex: 1;
+    
+}
+/*  */
+.contain {
+    margin: 1em;
+    margin-bottom: 4em;
+    padding: 5.7em;
+    padding-top: 2em;
+    border-radius: 1em;
+    box-align: center;
+    position: relative;
+}
+.contact-us {
+    background-color: #00F5D4;
+    padding-top: 0.1em;
+    height: 8.5em;
+}
+#contact {
+    margin:0; 
+    padding: 0em;
+    display:inline; 
+    float:left
+}
+
+#location {
+    margin:0; 
+    padding: 0em;
+    display:inline; 
+    float:right;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    margin-top: 1.5em;
+    text-align: center;
+}
+@media (min-width: 960px) {
+    .row  center {
+        display: flex;
+        background-color:cadetblue ;
+    }    
+}
+
+.total{
+    background-color: cadetblue;
+    color: cadetblue;
+    font-weight: bold;
+}
+.totalCheckout{
+    /* color: var(--tertiary); */
+     background-color: cadetblue; 
+}
+.totalpar > span{
+    color:cadetblue;
+}
+
+.hide{
+    display: none;
+}
+
+.intro-order{
+    background-color: cadetblue;
+    /* color: var(--secondary); */
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.message{
+    background-color: yellowgreen;
+   
+}
+.enjoy{
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.login{
+    background-color: var(--extra);
+}
+.login > form > div{
+    padding: 2rem;
+    margin: 2em;
+}
+/* .logout{
+    margin: 1em;
+    padding: 1em;
+} */
+.order{
+    background-color: var(--tertiary);
+}
+.order > form > div{
+    padding: 1rem;
+    margin: 1.kem;
+}
+.carttable{
+    text-align: center;
+    background-color: var(--extra);
+}
+td{
+    margin: 1em;
+    padding: 0px 5px 0px 5px;
+    
+}
+.order_head{
+    background-color: cadetblue;
+}
+ul{
+    display: flex;
+    list-style: none;
+    background-color: cadetblue;
+}
+ul > a{
+    /* margin: 10px 0px 10px 0px ; */
+    padding: 5px 20px 5px 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+ul > a:hover{
+    background-color: var(--extra);
+}
+.orderbtn:hover{
+    background-color: wheat;
+}
+
+.refresh{
+    font-size: small;
+    font-weight: lighter;
+    
+    background-color: wheat;
+    
+}
+
+@media only screen and(min-width: 60em) {
+
+
+
+
+.pizza > form > div{
+    background-color: var(--extra);
+    
+    margin: .5em;
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 85%;
+}
+
+
+
+}
+
+

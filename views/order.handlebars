@@ -1,0 +1,26 @@
+<div class="order container center m-3 p-3">
+    <form action="/" method="get">
+    <div class="carttable ">
+        <table class="center">
+            <thead class="order_head">
+                <tr >
+                    <td>Id</td>
+                    <td>Amont</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+        
+                    <td>{{id}}</td>
+                    <td>{{amount}}</td>
+                    <td><input class="orderbtn" type="submit" value="{{status}}"></td>
+                </tr>
+                {{/each}}
+            </tbody>
+            
+        </table>
+    </div>
+   </form>
+</div>

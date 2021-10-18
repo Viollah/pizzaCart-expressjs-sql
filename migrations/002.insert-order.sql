@@ -1,0 +1,2 @@
+-- insert into orderTable(order_id,order_status, payment )
+--  values (2,'payment', '200');
