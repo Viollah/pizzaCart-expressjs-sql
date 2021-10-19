@@ -1,0 +1,91 @@
+<div class="order container center m-3 p-3">
+    <form action="/orderaction/" method="post">
+    <div class="carttable ">
+        <table class="center">
+            <thead class="order_head">
+                <tr >
+                    <td >street name</td>
+                    <td >delivery agents</td>
+                    <td >delivery cost</td>
+                   </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>lydes</td>
+                    <td>mr D</td>
+                    <td >15</td>
+                   
+                </tr>
+                 <tr>
+                    <td>madiba</td>
+                    <td>uber eats</td>
+                    <td>8</td>
+                 <tr>
+                    <td>girth</td>
+                    <td>mr D</td>
+                    <td>30</td>
+                 
+                </tr>
+                 <tr>
+                    <td>chris</td>
+                    <td>uber eats</td>
+                    <td>18</td>
+                    
+                </tr>
+                 <tr>
+                    <td>hunter</td>
+                    <td>mr D</td>
+                    <td>12</td>
+                    
+                </tr>
+                 <tr>
+                    <td>smith</td>
+                    <td>mr D</td>
+                    <td>40</td>
+                   
+                </tr>
+                 <tr>
+                    <td>andies</td>
+                    <td>uber eats</td>
+                    <td>10</td>
+                    
+                </tr>
+                 <tr>
+                    <td>stanbeg</td>
+                    <td>ubers eats</td>
+                    <td>15</td>
+                    
+                </tr>
+                 <tr>
+                    <td>polo</td>
+                    <td>mr D</td>
+                    <td>19</td>
+                    
+                </tr>
+                 <tr>
+                    <td>galeda</td>
+                    <td>mr D</td>
+                    <td>30</td>
+                    
+                </tr>
+                <tr>
+                    <td>arcadia</td>
+                    <td>uber eats</td>
+                    <td>14</td>
+                    
+                </tr>
+                
+                {{#each orders}}
+                <tr>
+                     <td>{{street}}</td>
+                     <td>{{agent}}</td>
+                      <td>{{cost}}</td>
+                    
+                </tr>
+                {{/each}}
+            </tbody>
+            
+        </table>
+    </div>
+   </form>
+</div>

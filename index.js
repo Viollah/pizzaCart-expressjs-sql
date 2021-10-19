@@ -177,6 +177,47 @@ open({
 	}
   });
 
+  //
+  app.post("/delivery", async function (req, res) {
+    if (req.session.username) {
+		d1 = req.body.gtotal;
+    let payment = cart.getpayingstring();
+
+    let username = req.session.username;
+    console.log(username);
+    a = await db.run(
+      "insert into ordertbable(username, order_status, payment) values (?, ?, ?)",
+      username,
+	  payment,
+      d1
+    );
+    cart.orderregister();
+    res.redirect("/delivery");
+	}else{
+		res.redirect('/login')
+	}
+  });
+
+  app.get("/delivery", async function (req, res) {
+    if (req.session.username) {
+	pays = cart.getpayingstring();
+    hide = cart.getshowbtn();
+    delivery = await db.all(
+      "select * from ordertbable where username = ?",
+      req.session.username
+    );
+
+
+    res.render("delivery", {
+		orders: orders,
+		pays: pays,
+		hide: hide,
+    });
+	} else{
+		res.redirect('/login')
+	}
+  });
+//
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       if (err) {
