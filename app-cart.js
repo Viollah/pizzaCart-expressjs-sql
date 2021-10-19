@@ -1,3 +1,4 @@
+
 module.exports = function cart() {
     var grandtotal =0;
     var smtotal=0;
@@ -7,8 +8,10 @@ module.exports = function cart() {
     var mqty = 0;
     var lqty = 0;
     var toogle = 'hide';
+    var toogles = '';
     let orderlist = [];
-    // var dis = '';
+    let payString ='pay';
+  
 
 
     function hide() {
@@ -18,6 +21,16 @@ module.exports = function cart() {
 
     function hiderem() {
         toogle = ''
+
+    }
+
+    function showbtn() {
+        toogles = 'hide'
+
+    }
+
+    function getshowbtn() {
+        return toogles
 
     }
     function hideremv() {
@@ -30,26 +43,15 @@ module.exports = function cart() {
 
     }
 
-    // function disabling() {
-        
-    //     dis = 'disabled'
-
-    // }
-    // function disablingv() {
-        
-    //     return dis
-
-    // }
+   
 
 
     function buymedium(a) {
-        // mediump =0;
-        // return mediump; 
+     
         
     }
     function buylarge(a) {
-        // largep =00;
-        // return largep;
+        
         
     }
 
@@ -151,16 +153,31 @@ module.exports = function cart() {
         
     }
     function orderregister() {
-        orderlist.push({
-            id: 1,
-            amount: gtotal(),
-            status: 'pay'
-        })
+        // orderlist.push({
+        //     id: 1,
+        //     amount: gtotal(),
+        //     status: 'pay'
+        // })
         
     }
 
     function orderlisting() {
         return orderlist
+    }
+
+    function payingstring() {
+        if (payString === '') {
+            payString = 'pay'
+        } else if (payString === 'pay') {
+            payString = 'collect'
+        }
+        else if (payString === 'waiting collection') {
+            payString = 'collected'
+        }
+    }
+
+    function getpayingstring() {
+        return payString
     }
 
 
@@ -170,8 +187,6 @@ module.exports = function cart() {
         hidev,
         hiderem,
         hideremv,
-        // disabling,
-        // disablingv,
         buymedium,
         buylarge,
         addsmall,
@@ -189,6 +204,10 @@ module.exports = function cart() {
         largeqty,
         clearcart,
         orderregister,
-        orderlisting
+        orderlisting,
+        payingstring,
+        getpayingstring,
+        showbtn,
+        getshowbtn
     }
 }
