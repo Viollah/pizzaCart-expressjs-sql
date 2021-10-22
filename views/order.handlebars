@@ -1,6 +1,7 @@
 <div class="order container center m-3 p-3">
     <form action="/orderaction/" method="post">
     <div class="carttable ">
+      {{orders}}
         <table class="center">
             <thead class="order_head">
                 <tr >
@@ -11,110 +12,37 @@
                    </tr>
             </thead>
             <tbody>
-               
-                 <tr>
-                    <td>90</td>
-                    <td>49</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td>
-                       <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                    </td>
-                    
-                </tr>
-                 <tr>
-                    <td>91</td>
-                    <td>89</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>92</td>
-                    <td>129</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                    <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>94</td>
-                    <td>138</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                    <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>95</td>
-                    <td>178</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>96</td>
-                    <td>129</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>97</td>
-                    <td>218</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>98</td>
-                    <td>267</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>99</td>
-                    <td>178</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                 <tr>
-                    <td>100</td>
-                    <td>258</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>
-                <tr>
-                    <td>101</td>
-                    <td>98</td>
-                    <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="collect"></td>
-                     <td >
-                         <input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}">
-                     </td>
-                </tr>  
 
                 
                 {{#each orders}}
+            
                 <tr>
                     
-                    {{!-- <td>{{order_id}}</td> --}}
-                    <td>{{payment}}</td>
+                    <td>{{order_id}}</td>
+                    <td>{{amount}}</td>
                     <td>{{status}}</td>
-                    {{!-- <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td> --}}
+                     <td>{{payment}}</td>
+                    {{!-- <td ><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td>  --}}
                 </tr>
                 {{/each}}
             </tbody>
             
         </table>
     </div>
+    
    </form>
 </div>
+{{!-- 
+<h1>Order</h1> --}}
+{{!-- <a href="/order_add">add pizza</a> --}}
+{{!-- {{orders}}
+<table>
+    {{#each order}}
+<tr>
+    <td>{{order_id}}</td>
+    <td>{{amount}}</td>
+    <td>{{status}}</td>
+    <td>{{payment}}</td>
+</tr>
+{{/each}}
+</table> --}}

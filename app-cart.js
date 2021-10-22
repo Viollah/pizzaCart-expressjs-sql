@@ -153,11 +153,11 @@ module.exports = function cart() {
         
     }
     function orderregister() {
-        // orderlist.push({
-        //     id: 1,
-        //     amount: gtotal(),
-        //     status: 'pay'
-        // })
+        orderlist.push({
+            id: 1,
+            amount: gtotal(),
+            status: 'pay'
+        })
         
     }
 

@@ -136,7 +136,13 @@ h5{
    border-radius: 2em;
  
 }
-
+.field label{
+  display: inline-block;
+  width: 5em;
+}
+.field{
+    margin: 1em;
+}
 .cart{
     background-color: cadetblue;
     padding: 2em;

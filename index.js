@@ -37,14 +37,14 @@ var dis2 = "";
 var dis3 = "";
 
 open({
-  filename: "./sqlit.db",
+  filename: "./ordertables.db",
   driver: sqlite3.Database,
 }).then(async function (db) {
   // run migrations
 
   await db.migrate();
 
-  // only setup the routes once the database connection has been established
+  // only setup the routes once the database connection has been established  
 
   app.get("/", async function (req, res) {
     var setsession = req.session.username;
@@ -144,12 +144,14 @@ open({
 
     let username = req.session.username;
     console.log(username);
-    a = await db.run(
-      "insert into ordertbable(username, order_status, payment) values (?, ?, ?)",
-      username,
+     const a = await db.run(
+      "insert into ordertables(username, order_status,amount, payment) values (?,?,?, ?)",
+    username,
 	  payment,
       d1
     );
+    // const a =`insert into ordertables (username, order_status,amount, payment) values(?,?,?,?)` ;
+    // await db.run(a,req.body.username,req.body.order_status,req.body.amount,req.body.payment);
     cart.orderregister();
     res.redirect("/order");
 	}else{
@@ -161,10 +163,10 @@ open({
     if (req.session.username) {
 		pays = cart.getpayingstring();
     hide = cart.getshowbtn();
-    orders = await db.all(
-      "select * from ordertbable where username = ?",
-      req.session.username
-    );
+     const orders = await db.all("select * from ordertables")
+
+      // req.session.username
+    
 
 
     res.render("order", {
@@ -177,7 +179,6 @@ open({
 	}
   });
 
-  //
   app.post("/delivery", async function (req, res) {
     if (req.session.username) {
 		d1 = req.body.gtotal;
@@ -218,6 +219,27 @@ open({
 	}
   });
 //
+app.get('/pizzas', async function(req,res){
+  const pizzas = await db.all('select * from pizza');
+  res.render("pizzas",{
+  pizzas
+  });
+  //  res.render("pizzas");
+});
+
+app.get('/pizza_add', function(req,res){
+  res.render("pizza_add");
+});
+
+app.post('/pizza_add', async function(req,res){
+  console.log(req.body);
+  res.redirect("/pizzas");
+
+  const insert_pizza =`insert into pizza (flavour,size,price) values(?,?,?)` ;
+  await db.run(insert_pizza,req.body.flavour,req.body.size,req.body.price);
+});
+
+// 
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
       if (err) {
@@ -257,7 +279,7 @@ open({
 		if (req.body.orderbtn === "pay") {
 			cart.payingstring()
 		
-		} else if (req.body.orderbtn === " waiting collection") {
+		} else if (req.body.orderbtn === "collect") {
 			cart.payingstring()
 		
 		
