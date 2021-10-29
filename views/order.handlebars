@@ -1,7 +1,7 @@
 <div class="order container center m-3 p-3">
     <form action="/orderaction/" method="post">
     <div class="carttable ">
-      {{orders}}
+      {{!-- {{orders}} --}}
         <table class="center">
             <thead class="order_head">
                 <tr >
@@ -16,22 +16,22 @@
                 
                 {{#each orders}}
             <tr>
-              <td>1</td>
+              <td>011</td>
                <td>49</td>
                 <td>collect</td>
-                 <td><button>paid</button></td>
+                 <td><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td>
             </tr>
               <tr>
-              <td>2</td>
+              <td>012</td>
                <td>89</td>
-                <td>collected</td>
-                 <td><button>paid</button></td>
+                <td>pay</td>
+               <td><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td>
             </tr>
               <tr>
-              <td>3</td>
+              <td>013</td>
                <td>129</td>
-                <td>pay</td>
-                 <td><button>paid</button></td>
+                <td>collection</td>
+                <td><input {{hide}} class="orderbtn" name="orderbtn" type="submit" value="{{@root.pays}}"></td>
             </tr>
                 <tr>
                     
@@ -49,17 +49,3 @@
     
    </form>
 </div>
-{{!-- 
-<h1>Order</h1> --}}
-{{!-- <a href="/order_add">add pizza</a> --}}
-{{!-- {{orders}}
-<table>
-    {{#each order}}
-<tr>
-    <td>{{order_id}}</td>
-    <td>{{amount}}</td>
-    <td>{{status}}</td>
-    <td>{{payment}}</td>
-</tr>
-{{/each}}
-</table> --}}

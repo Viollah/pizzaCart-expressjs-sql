@@ -142,7 +142,15 @@ h5{
 }
 .field{
     margin: 1em;
+    text-align: center;
 }
+.submit{
+    text-align: center;
+} 
+h1{
+    text-align: center;
+}
+
 .cart{
     background-color: cadetblue;
     padding: 2em;

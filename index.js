@@ -136,89 +136,99 @@ open({
     cart.minuslarger();
     res.redirect("/");
   });
+// 
+// const order = [{
+//   order_id : 10,
+//   qty : 3,
+//   total: 120
+// },
+// {
+//   order_id : 11,
+//   qty : 2,
+//   total: 100
+// }
+// ];
 
-  app.post("/order", async function (req, res) {
-    if (req.session.username) {
-		d1 = req.body.gtotal;
-    let payment = cart.getpayingstring();
+// app.post("/order", async function(req,res){
+//   console.log();
+  
+//   const result= await db.get(`select count(*) as orderCount from pizza_order`)
+//   if(result.orderCount === 0){
+//     db.exec(`insert into pizza_order (small,medium,large,username) values(0,0,0,0, '')`)
+//   }
+//    const pizza = await db.get(`select * from pizza where id= ?`,req.body.pizza_id);
 
-    let username = req.session.username;
-    console.log(username);
-     const a = await db.run(
-      "insert into ordertables(username, order_status,amount, payment) values (?,?,?, ?)",
-    username,
-	  payment,
-      d1
-    );
-    // const a =`insert into ordertables (username, order_status,amount, payment) values(?,?,?,?)` ;
-    // await db.run(a,req.body.username,req.body.order_status,req.body.amount,req.body.payment);
-    cart.orderregister();
-    res.redirect("/order");
-	}else{
-		res.redirect('/login')
-	}
+// if(pizza){
+//   console.log(pizza);
+// }
+
+//   res.redirect("/");
+// })
+// 
+app.post("/order", async function (req, res) {
+  if (req.session.username) {
+  d1 = req.body.gtotal;
+  let payment = cart.getpayingstring();
+
+  let username = req.session.username;
+  console.log(username);
+   const a = await db.run(
+    "insert into ordertables(username, order_status,amount, payment) values (?,?,?, ?)",
+  username,
+  payment,
+    d1
+  );
+  // const a =`insert into ordertables (username, order_status,amount, payment) values(?,?,?,?)` ;
+  // await db.run(a,req.body.username,req.body.order_status,req.body.amount,req.body.payment);
+  cart.orderregister();
+  res.redirect("/order");
+}else{
+  res.redirect('/login')
+}
+});
+
+app.get("/order", async function (req, res) {
+  if (req.session.username) {
+  pays = cart.getpayingstring();
+  hide = cart.getshowbtn();
+   const orders = await db.all("select * from ordertables")
+
+    // req.session.username
+  
+
+
+  res.render("order", {
+    orders: orders,
+    pays: pays,
+    hide: hide,
   });
+} else{
+  res.redirect('/login')
+}
+});
 
-  app.get("/order", async function (req, res) {
-    if (req.session.username) {
-		pays = cart.getpayingstring();
-    hide = cart.getshowbtn();
-     const orders = await db.all("select * from ordertables")
-
-      // req.session.username
-    
-
-
-    res.render("order", {
-      orders: orders,
-      pays: pays,
-      hide: hide,
-    });
-	} else{
-		res.redirect('/login')
-	}
-  });
-
-  app.post("/delivery", async function (req, res) {
-    if (req.session.username) {
-		d1 = req.body.gtotal;
-    let payment = cart.getpayingstring();
-
-    let username = req.session.username;
-    console.log(username);
-    a = await db.run(
-      "insert into ordertbable(username, order_status, payment) values (?, ?, ?)",
-      username,
-	  payment,
-      d1
-    );
-    cart.orderregister();
-    res.redirect("/delivery");
-	}else{
-		res.redirect('/login')
-	}
-  });
-
-  app.get("/delivery", async function (req, res) {
-    if (req.session.username) {
-	pays = cart.getpayingstring();
-    hide = cart.getshowbtn();
-    delivery = await db.all(
-      "select * from ordertbable where username = ?",
-      req.session.username
-    );
-
-
-    res.render("delivery", {
-		orders: orders,
-		pays: pays,
-		hide: hide,
-    });
-	} else{
-		res.redirect('/login')
-	}
-  });
+ 
 //
+app.get('/delivery', async function(req,res){
+  const delivery = await db.all('select * from deliveries');
+  res.render("delivery",{
+  delivery
+  });
+  //  res.render("pizzas");
+});
+
+app.get('/delivery_add', function(req,res){
+  res.render("delivery_add");
+});
+
+app.post('/delivery_add', async function(req,res){
+  console.log(req.body);
+  res.redirect("/delivery");
+
+  const insert_deliveries =`insert into deliveries (street,agent,contact,cost) values(?,?,?,?)` ;
+  await db.run(insert_deliveries,req.body.street,req.body.agent,req.body.contact,req.body.cost);
+});
+// 
 app.get('/pizzas', async function(req,res){
   const pizzas = await db.all('select * from pizza');
   res.render("pizzas",{
@@ -227,7 +237,7 @@ app.get('/pizzas', async function(req,res){
   //  res.render("pizzas");
 });
 
-app.get('/pizza_add', function(req,res){
+app.get('/pizza_add', function(req,res){ 
   res.render("pizza_add");
 });
 
@@ -297,5 +307,3 @@ app.post('/pizza_add', async function(req,res){
 app.listen(PORT, function () {
   console.log(`App started on port ${PORT}`);
 });
-
-

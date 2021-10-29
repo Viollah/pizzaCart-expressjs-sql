@@ -1,4 +1,4 @@
-<div class="order container center m-3 p-3">
+{{!-- <div class="order container center m-3 p-3">
     <form action="/orderaction/" method="post">
     <div class="carttable ">
         <table class="center">
@@ -88,9 +88,9 @@
                     
                 </tr>
                 
-                {{#each orders}}
+                {{#each delivery}}
                 <tr>
-                    {{!-- <td>{{order_id}}</td> --}}
+                    <td>{{order_id}}</td>
                      <td>{{street}}</td>
                      <td>{{agent}}</td>
                       <td>{{cost}}</td>
@@ -102,4 +102,31 @@
         </table>
     </div>
    </form>
-</div>
+</div> --}}
+
+<form action="">
+     <table class="center">
+            <thead class="order_head">
+                <h1>Delivery</h1>
+                <tr >
+                    <td >orderId</td>
+                    <td >street name</td>
+                    <td >delivery agents</td>
+                    <td >delivery cost</td>
+                   </tr>
+ 
+<a href="/delivery_add">add delivery</a>
+{{delivery}}
+
+    {{#each delivery}}
+<tr>
+    <td>{{street}}</td>
+    <td>{{agent}}</td>
+    <td>{{contact}}</td>
+    <td>{{cost}}</td>
+</tr>
+{{/each}}
+</table>
+</form>
+
+
